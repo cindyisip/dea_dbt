@@ -30,6 +30,8 @@ models:
     description: 'DBT model for ephemeral model for clean orders'
   - name: final_orders
     description: 'DBT model for final orders'
+  - name: patient 
+    description: 'DBT model for SCD TYPE2, PATIENT Model using SNAPSHOT'
 
 sources:
   - name: employee
@@ -62,4 +64,9 @@ sources:
     schema: PUBLIC
     tables:
       - name: BASE_ORDERS
+  - name: patient
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PATIENT_SRC
 
