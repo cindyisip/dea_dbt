@@ -32,7 +32,8 @@ models:
     description: 'DBT model for final orders'
   - name: patient 
     description: 'DBT model for SCD TYPE2, PATIENT Model using SNAPSHOT'
-
+  - name: session
+    description: :DBT Model for the session table"
 sources:
   - name: employee
     database: DBT_DB
@@ -69,4 +70,8 @@ sources:
     schema: PUBLIC
     tables:
       - name: PATIENT_SRC
-
+  - name: session
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: SESSION_SRC
