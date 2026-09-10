@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'dea_dbt'
 version: '1.0.0'
 config-version: 2
 
@@ -10,9 +10,9 @@ config-version: 2
 profile: 'default'
 
 vars:
-   target_db: GLUEDB
+   target_db: SCD2_DB
    target_schema: PUBLIC
-   stage_name: GLUEDB.PUBLIC.GLUE_S3_STAGE
+   stage_name: GLUEDB.PUBLIC.SCD2_STAGE
 
 
 # These configurations specify where dbt should look for different types of files.
@@ -42,7 +42,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
+  dea_dbt:
+    silver:
+          schema: silver
+          materialized: table
+    gold:
+          schema: gold
+          materialized: view
